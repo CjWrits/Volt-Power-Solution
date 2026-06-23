@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #052e16; /* solar green 950 */
+    --foreground: #f0fdf4; /* solar green 50 */
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/10 shadow-xl;
+  }
+
+  .solar-gradient {
+    @apply bg-gradient-to-r from-solar-green-600 to-solar-yellow-500;
+  }
+
+  .solar-text-gradient {
+    @apply bg-gradient-to-r from-solar-green-600 to-solar-yellow-500 bg-clip-text text-transparent;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-solar-green-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-solar-green-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-solar-green-600;
+}
